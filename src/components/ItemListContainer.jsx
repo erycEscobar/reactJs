@@ -1,20 +1,20 @@
 import React from "react";
 
-const ItemListContainer = () => {
+const ItemListContainer = ({prop}) => {
     return (
         <div class="itemList-Container">
             <ul class="cardItem-List">
                 <li class="cardItem-Container">
-                    <a class="item-Link" href="#">ITEM-01</a>
+                    <a class="item-Link" href="#">{prop}</a>
                 </li>
                 <li class="cardItem-Container">
-                    <a class="item-Link" href="#">ITEM-02</a>
+                    <a class="item-Link" href="#">{prop}</a>
                 </li>
                 <li class="cardItem-Container">
-                    <a class="item-Link" href="#">ITEM-03</a>
+                    <a class="item-Link" href="#">{prop}</a>
                 </li>
                 <li class="cardItem-Container">
-                    <a class="item-Link" href="#">ITEM-04</a>
+                    <a class="item-Link" href="#">{prop}</a>
                 </li>
             </ul>
         </div>

@@ -4,7 +4,7 @@ import CartWidget from './CartWidget'
 const NavBar = () => {
     return (
         <div class="navBarContainer">
-            <a class="navBar-brand" href="#">Navbar</a>
+            <a class="navBar-brand" href="#">TodaviaNoHayLogo.</a>
             <ul class="navBar-options">
                 <li class="navBar-item">
                     <a class="navBar-link" href="#">Opcion-01</a>

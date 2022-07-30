@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer />
+      <ItemListContainer prop="aca' ta' la prop" />
     </>
 
   )

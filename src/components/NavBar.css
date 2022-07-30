@@ -21,7 +21,7 @@
     letter-spacing: 1.5px;
     float: left;
     color: #ffff;
-    text-transform: uppercase;
+    text-transform: capitalize;
     text-decoration: none;
 }
 
