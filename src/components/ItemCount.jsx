@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
     const [unitCounter, setUnitCounter] = useState(initial);
     
     const sumarUnidad = () => {
@@ -15,6 +15,15 @@ const ItemCount = ({stock, initial}) => {
         }
     }
 
+    const add = () => {
+        if (unitCounter != 0) {
+            onAdd = unitCounter;
+            console.log(unitCounter);
+            setUnitCounter(unitCounter - unitCounter);
+
+        }
+    }
+
 
     return (
         <div class="itemCountContainer">
@@ -23,7 +32,7 @@ const ItemCount = ({stock, initial}) => {
                 <p>{unitCounter}</p>
                 <button onClick={sumarUnidad}>+</button>
             </div>
-            <button>Agregar al carrito</button>
+            <button onClick={add}>Agregar al carrito</button>
         </div>
     )
 }
