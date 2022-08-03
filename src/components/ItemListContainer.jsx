@@ -1,4 +1,5 @@
 import React from "react";
+import ItemCount from "./ItemCount";
 
 const ItemListContainer = ({prop}) => {
     return (
@@ -6,15 +7,19 @@ const ItemListContainer = ({prop}) => {
             <ul class="cardItem-List">
                 <li class="cardItem-Container">
                     <a class="item-Link" href="#">{prop}</a>
+                    <ItemCount stock={5} initial={1}/>
                 </li>
                 <li class="cardItem-Container">
                     <a class="item-Link" href="#">{prop}</a>
+                    <ItemCount stock={5} initial={1}/>
                 </li>
                 <li class="cardItem-Container">
                     <a class="item-Link" href="#">{prop}</a>
+                    <ItemCount stock={5} initial={1}/>
                 </li>
                 <li class="cardItem-Container">
                     <a class="item-Link" href="#">{prop}</a>
+                    <ItemCount stock={5} initial={1}/>
                 </li>
             </ul>
         </div>

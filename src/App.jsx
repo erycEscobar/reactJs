@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import logo from './logo.svg'
 
 import './App.css'
 
@@ -8,6 +6,9 @@ import './components/NavBar.css'
 
 import ItemListContainer from './components/ItemListContainer'
 import './components/ItemListContainer.css'
+
+import ItemCount from './components/ItemCount'
+import './components/ItemCount.css'
 
 
 function App() {
