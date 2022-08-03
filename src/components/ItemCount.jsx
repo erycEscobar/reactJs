@@ -13,7 +13,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     const handleAgregar = () => {
         onAdd(unitCounter);
-        setUnitCounter(1);
+        setUnitCounter(initial);
     }
 
     return (

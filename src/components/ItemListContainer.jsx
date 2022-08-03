@@ -1,34 +1,16 @@
 import React from "react";
-import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 
 const ItemListContainer = ({prop}) => {
 
-    const onAdd = (unitsOf) => {
-        alert(`Se agregaron ${unitsOf} productos al carrito`);
-    }
-
     return (
-        <div class="itemList-Container">
-            <ul class="cardItem-List">
-                <li class="cardItem-Container">
-                    <a class="item-Link" href="#">{prop}</a>
-                    <ItemCount stock={5} initial={1} onAdd={onAdd}/>
-                </li>
-                <li class="cardItem-Container">
-                    <a class="item-Link" href="#">{prop}</a>
-                    <ItemCount stock={5} initial={1} onAdd={onAdd}/>
-                </li>
-                <li class="cardItem-Container">
-                    <a class="item-Link" href="#">{prop}</a>
-                    <ItemCount stock={5} initial={1} onAdd={onAdd}/>
-                </li>
-                <li class="cardItem-Container">
-                    <a class="item-Link" href="#">{prop}</a>
-                    <ItemCount stock={5} initial={1} onAdd={onAdd}/>
-                </li>
-            </ul>
-        </div>
+        <>
+            <div class="itemList-Container">
+                <ItemList prop={prop}/>
+            </div>
+        </>
     )
+
 }
 
 export default ItemListContainer
