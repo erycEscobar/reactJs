@@ -3,36 +3,27 @@ import React, { useState } from "react";
 const ItemCount = ({stock, initial, onAdd}) => {
     const [unitCounter, setUnitCounter] = useState(initial);
     
-    const sumarUnidad = () => {
-        if (unitCounter < stock) {
-            setUnitCounter(unitCounter + 1);
-        }
+    const handleSumarUnidad = () => {
+        setUnitCounter(unitCounter + 1);
     }
 
-    const restarUnidad = () => {
-        if (unitCounter > 0) {
-            setUnitCounter(unitCounter - 1);
-        }
+    const handleRestarUnidad = () => {
+        setUnitCounter(unitCounter - 1);
     }
 
-    const add = () => {
-        if (unitCounter != 0) {
-            onAdd = unitCounter;
-            console.log(unitCounter);
-            setUnitCounter(unitCounter - unitCounter);
-
-        }
+    const handleAgregar = () => {
+        onAdd(unitCounter);
+        setUnitCounter(1);
     }
-
 
     return (
         <div class="itemCountContainer">
             <div class="counter">
-                <button onClick={restarUnidad}>-</button>
+                <button disabled={unitCounter === 0} onClick={handleRestarUnidad}>-</button>
                 <p>{unitCounter}</p>
-                <button onClick={sumarUnidad}>+</button>
+                <button disabled={unitCounter === stock} onClick={handleSumarUnidad}>+</button>
             </div>
-            <button onClick={add}>Agregar al carrito</button>
+            <button disabled={unitCounter === 0} onClick={handleAgregar}>Agregar al carrito</button>
         </div>
     )
 }
