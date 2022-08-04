@@ -1,0 +1,15 @@
+.itemDetailContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: white;
+
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px;
+    border: #383838 2px solid;
+    border-radius: 1%;
+    width: 1000px;
+    height: 500px;
+}

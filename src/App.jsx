@@ -10,13 +10,17 @@ import './components/ItemListContainer.css'
 import ItemCount from './components/ItemCount'
 import './components/ItemCount.css'
 
+import ItemDetailContainer from './components/ItemDetailContainer'
+import './components/ItemDetail.css'
+
 
 function App() {
 
   return (
     <>
       <NavBar />
-      <ItemListContainer prop="CATALOGO" />
+      {/* <ItemListContainer prop="CATALOGO" /> */}
+      <ItemDetailContainer />
     </>
 
   )
