@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer prop="aca' ta' la prop" />
+      <ItemListContainer prop="CATALOGO" />
     </>
 
   )

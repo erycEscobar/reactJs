@@ -1,7 +1,7 @@
 import React from "react";
 import ItemCount from "./ItemCount";
 
-const Item = ({prop}) => {
+const Item = ({info}) => {
 
     const onAdd = (unitsOf) => {
         alert(`Se agregaron ${unitsOf} productos al carrito`);
@@ -9,9 +9,13 @@ const Item = ({prop}) => {
 
     return (
         <>
-            <li class="cardItem-Container">
-                <a class="item-Link" href="#">{prop}</a>
-                <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+            <li className="cardItem-Container">
+                <a className="item-Link" href="#">
+                    {info.modelo}
+                    <img src={info.img} alt="" />
+                
+                </a>
+                <ItemCount stock={info.stock} initial={1} onAdd={onAdd}/>
             </li>
         </>
     )
