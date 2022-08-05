@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import Loader from "../Loader";
 
 
 const producto = [
@@ -21,11 +22,14 @@ const ItemDetailContainer = () => {
 
     const [data, setData] = useState({});
     const {itemId} = useParams();
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
         
+        setLoader(true);
         const getData = new Promise(resolve => {
             setTimeout(() => {
+                setLoader(false);
                 resolve(producto);
             }, 2000);
             
@@ -35,9 +39,15 @@ const ItemDetailContainer = () => {
 
     }, [])
 
-    return (
-        <ItemDetail data={data} />
-    );
+    if (loader) {
+        return (
+            <Loader />
+        )
+    } else {
+        return (
+            <ItemDetail data={data} />
+        );
+    }
 }
 
 export default ItemDetailContainer;

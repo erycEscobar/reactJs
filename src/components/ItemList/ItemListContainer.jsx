@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
+import Loader from "../Loader";
 
 
 const products = [
@@ -20,31 +21,43 @@ const ItemListContainer = ({prop}) => {
 
     const [data, setData] = useState([]);
     const {categoryId} = useParams();
+    const [loader, setLoader] = useState(false);
 
     useEffect( () => {
-        const getData = new Promise(resolve => {
+
+        setLoader(true);
+        const getData = new Promise(resolve => {     
             setTimeout(() => {
-                resolve(products);
+                setLoader(false);
+                resolve(products);     
             }, 2000);
+
         });
+
         if (categoryId) {
             getData.then(res => setData(res.filter(products => products.category === categoryId)));
         } else {
             getData.then(res => setData(res));
         }
-
+        
     }, [categoryId])
 
-    return (
-        <>
-            <div className="itemList-Container">
-                <h2>{prop}</h2>
-                <ul className="cardItem-List"> 
-                    <ItemList data={data}/>
-                </ul>
-            </div>
-        </>
-    )
+    if (loader) {
+        return (
+            <Loader />
+        )
+    } else {
+        return (
+            <>
+                <div className="itemList-Container">
+                    <h2>{prop}</h2>
+                    <ul className="cardItem-List"> 
+                        <ItemList data={data}/>
+                    </ul>
+                </div>
+            </>
+        )
+    }
 
 }
 
