@@ -1,4 +1,6 @@
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import './App.css'
 
 import NavBar from './components/NavBar'
@@ -18,9 +20,21 @@ function App() {
 
   return (
     <>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer prop="CATALOGO" />}/>
+
+
+
+          <Route path="*" element={<h1>404</h1>}/>
+        </Routes>
+      </BrowserRouter>
+      {/* 
       <NavBar />
-      {/* <ItemListContainer prop="CATALOGO" /> */}
+      <ItemListContainer prop="CATALOGO" /> 
       <ItemDetailContainer />
+      */}
     </>
 
   )
