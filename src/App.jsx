@@ -3,17 +3,17 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import './App.css'
 
-import NavBar from './components/NavBar'
-import './components/NavBar.css'
+import NavBar from './components/NavBar/NavBar'
+import './components/NavBar/NavBar.css'
 
-import ItemListContainer from './components/ItemListContainer'
-import './components/ItemListContainer.css'
+import ItemListContainer from './components/ItemList/ItemListContainer'
+import './components/ItemList/ItemListContainer.css'
 
-import ItemCount from './components/ItemCount'
-import './components/ItemCount.css'
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer'
+import './components/ItemDetail/ItemDetail.css'
 
-import ItemDetailContainer from './components/ItemDetailContainer'
-import './components/ItemDetail.css'
+import './components/ItemDetail/ItemCount.css'
+
 
 
 function App() {
@@ -23,18 +23,13 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<ItemListContainer prop="CATALOGO" />}/>
+          <Route path="/" element={<ItemListContainer prop="CATALOGO" />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer prop="CATALOGO" />} />
+          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
 
-
-
-          <Route path="*" element={<h1>404</h1>}/>
+          <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </BrowserRouter>
-      {/* 
-      <NavBar />
-      <ItemListContainer prop="CATALOGO" /> 
-      <ItemDetailContainer />
-      */}
     </>
 
   )

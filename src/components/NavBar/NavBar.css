@@ -41,7 +41,7 @@
     max-width: 150px;
 }
 
-.navBar-link {
+.navBar-link {   
     display: block;
     text-decoration: none;
     text-transform: uppercase;
@@ -49,6 +49,10 @@
     font-weight: 400;
     color: rgb(202, 202, 202);
     text-align: center;
+}
+
+.navBar-link img {
+    width: 20px;
 }
 
 .navBar-link:hover {
