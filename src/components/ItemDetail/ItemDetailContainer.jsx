@@ -27,15 +27,18 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         
         setLoader(true);
-        const getData = new Promise(resolve => {
+        const getData = new Promise((resolve, reject) => {
             setTimeout(() => {
                 setLoader(false);
                 resolve(producto);
+                //reject("se rompio todo");
             }, 2000);
             
         });
 
-        getData.then(res => setData(res.find(producto => producto.id === parseInt(itemId))));
+        getData
+        .then(res => setData(res.find(producto => producto.id === parseInt(itemId))))
+        .catch((err) => console.log(err));
 
     }, [])
 

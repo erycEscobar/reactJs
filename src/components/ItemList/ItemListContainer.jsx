@@ -26,18 +26,19 @@ const ItemListContainer = ({prop}) => {
     useEffect( () => {
 
         setLoader(true);
-        const getData = new Promise(resolve => {     
+        const getData = new Promise((resolve, reject) => {     
             setTimeout(() => {
                 setLoader(false);
                 resolve(products);     
+                //reject("se rompio todo");
             }, 2000);
 
         });
 
         if (categoryId) {
-            getData.then(res => setData(res.filter(products => products.category === categoryId)));
+            getData.then(res => setData(res.filter(products => products.category === categoryId)), (err) => console.log(err));
         } else {
-            getData.then(res => setData(res));
+            getData.then(res => setData(res), (err) => console.log(err));
         }
         
     }, [categoryId])
