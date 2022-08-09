@@ -13,6 +13,7 @@ import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer'
 import './components/ItemDetail/ItemDetail.css'
 
 import './components/ItemDetail/ItemCount.css'
+import CartContainer from './components/Cart/CartContainer'
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<ItemListContainer prop="CATALOGO" />} />
           <Route path="/category/:categoryId" element={<ItemListContainer prop="CATALOGO" />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CartContainer />}></Route>
 
           <Route path="*" element={<h1>404</h1>} />
         </Routes>

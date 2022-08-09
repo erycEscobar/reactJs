@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import FinalizarCompra from "./FinalizarCompra";
 import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ data }) => {
+    const [finalizarCompra, setFinalizarCompra] = useState(false);
+    const [addToCart, setAddToCart] = useState(0);
 
     const onAdd = (unitsOf) => {
         alert(`Se agregaron ${unitsOf} productos al carrito`);
+        setAddToCart(unitsOf);
+        setFinalizarCompra(true);
     }
 
     return (
@@ -17,7 +22,11 @@ const ItemDetail = ({ data }) => {
                 <p>{data.descripcion}</p>
                 <h5>stock disponible: {data.stock} unidades</h5>
                 <h6>{data.precio}</h6>
-                <ItemCount stock={data.stock} initial={1} onAdd={onAdd}/>
+                {
+                    finalizarCompra
+                        ? <FinalizarCompra />
+                        : <ItemCount stock={data.stock} initial={1} onAdd={onAdd}/>
+                }
             </div>
         </div>
         </>
