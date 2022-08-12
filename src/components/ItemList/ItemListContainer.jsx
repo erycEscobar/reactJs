@@ -42,6 +42,7 @@ const ItemListContainer = ({prop}) => {
         }
         
     }, [categoryId])
+    
 
     if (loader) {
         return (
