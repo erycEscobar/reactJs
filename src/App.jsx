@@ -17,6 +17,8 @@ import './components/ItemDetail/ItemCount.css'
 
 import CartProvider from './components/CartContext';
 
+import './components/Cart/CartItem.css'
+
 function App() {
 
   return (

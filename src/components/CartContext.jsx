@@ -6,7 +6,7 @@ export const useCartContext = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
     
     const [cart, setCart] = useState([]);
-    console.log('carrito: ', cart);
+    //console.log('carrito: ', cart);
 
     const clearCart = () => setCart([]);
 
@@ -22,15 +22,23 @@ const CartProvider = ({ children }) => {
         } else {
             setCart([...cart, { ...item, quantity }]);
         }
-
     }
+
+    const totalPrice = () => {
+        return cart.reduce((prev, act) => prev + act.quantity * act.precio, 0);
+    }
+
+    const totalProducts = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0);
 
     return (
         <CartContext.Provider value={{
             clearCart,
             isInCart,
             removeProduct,
-            addProduct
+            addProduct,
+            totalPrice,
+            totalProducts,
+            cart
         }}>
             {children}
         </CartContext.Provider>
