@@ -12,25 +12,27 @@ import './components/ItemList/ItemListContainer.css'
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer'
 import './components/ItemDetail/ItemDetail.css'
 
-import './components/ItemDetail/ItemCount.css'
 import CartContainer from './components/Cart/CartContainer'
+import './components/ItemDetail/ItemCount.css'
 
-
+import CartProvider from './components/CartContext';
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer prop="CATALOGO" />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer prop="CATALOGO" />} />
-          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<CartContainer />}></Route>
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ItemListContainer prop="CATALOGO" />} />
+            <Route path="/category/:categoryId" element={<ItemListContainer prop="CATALOGO" />} />
+            <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<CartContainer />}></Route>
 
-          <Route path="*" element={<h1>404</h1>} />
-        </Routes>
+            <Route path="*" element={<h1>404</h1>} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </>
 
