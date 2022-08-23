@@ -6,11 +6,12 @@ const CartItem = ({ product }) => {
 
     return (
         <div className="itemCart">
-            <img src={product.img} alt={product.modelo} />
+            <img src={product.img} alt={product.model} />
             <div>
+                <p>Producto: {product.model}</p>
                 <p>Unidades: {product.quantity}</p>
-                <p>Precio por unidad: {product.precio}</p>
-                <p>Subtotal: ${product.quantity * product.precio}</p>
+                <p>Precio por unidad: {product.price}</p>
+                <p>Subtotal: ${product.quantity * product.price}</p>
                 <button onClick={() => removeProduct(product.id)}>Eliminar del carrito</button>
             </div>
         </div>

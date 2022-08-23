@@ -26,12 +26,12 @@ const NavBar = () => {
         <div className="navBarContainer">
             <ul className="navBar-options">
                 <li className="navBar-item">
-                    <NavLink className="navBar-link" to='/category/celulares'>
+                    <NavLink className="navBar-link" to='/category/cellphone'>
                         celulares
                     </NavLink>
                 </li>
                 <li className="navBar-item">
-                    <NavLink className="navBar-link" to='/category/tablets'>
+                    <NavLink className="navBar-link" to='/category/tablet'>
                         tablets
                     </NavLink>
                 </li>

@@ -6,7 +6,7 @@ const Item = ({info}) => {
         <>
             <li className="cardItem-Container">
                 <Link className="item-Link" to={`/item/${info.id}`}>
-                    {info.modelo}
+                    {info.model}
                     <img src={info.img} alt="" />       
                 </Link>
             </li>

@@ -1,21 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 import ItemList from "./ItemList";
 import Loader from "../Loader";
 
-
-const products = [
-
-    {id:1, precio: 50000, modelo: "modelo1", marca: "marca1", stock: 9, category: "celulares", img: "../../../src/Assets/img-celular.png" },
-    {id:2, precio: 50000, modelo: "modelo2", marca: "marca2", stock: 2, category: "tablets", img: "../../../src/Assets/img-tablet.png" },
-    {id:3, precio: 50000, modelo: "modelo3", marca: "marca3", stock: 8, category: "tablets", img: "../../../src/Assets/img-tablet.png" },
-    {id:4, precio: 50000, modelo: "modelo4", marca: "marca4", stock: 5, category: "celulares", img: "../../../src/Assets/img-celular.png" },
-    {id:5, precio: 50000, modelo: "modelo5", marca: "marca5", stock: 9, category: "tablets", img: "../../../src/Assets/img-tablet.png" },
-    {id:6, precio: 50000, modelo: "modelo6", marca: "marca6", stock: 2, category: "celulares", img: "../../../src/Assets/img-celular.png" },
-    {id:7, precio: 50000, modelo: "modelo7", marca: "marca7", stock: 8, category: "celulares", img: "../../../src/Assets/img-celular.png" },
-    {id:8, precio: 50000, modelo: "modelo8", marca: "marca8", stock: 5, category: "tablets", img: "../../../src/Assets/img-tablet.png" },
-    
-];
 
 const ItemListContainer = ({prop}) => {
 
@@ -24,21 +12,33 @@ const ItemListContainer = ({prop}) => {
     const [loader, setLoader] = useState(false);
 
     useEffect( () => {
-
+        const querydb = getFirestore();
+        const queryCollection = collection (querydb, 'products');
         setLoader(true);
-        const getData = new Promise((resolve, reject) => {     
-            setTimeout(() => {
-                setLoader(false);
-                resolve(products);     
-                //reject("se rompio todo");
-            }, 2000);
-
-        });
 
         if (categoryId) {
-            getData.then(res => setData(res.filter(products => products.category === categoryId)), (err) => console.log(err));
+            const queryFilter = query(queryCollection, where('category', '==', categoryId));
+            getDocs(queryFilter)
+            .then(res => {
+                setData(
+                    res.docs.map(product => ({
+                        id: product.id,
+                        ...product.data()
+                    }))
+                )
+                setLoader(false);
+            })
         } else {
-            getData.then(res => setData(res), (err) => console.log(err));
+            getDocs(queryCollection)
+            .then(res => {
+                setData(
+                    res.docs.map(product => ({
+                        id: product.id,
+                        ...product.data()
+                    }))
+                )
+                setLoader(false);
+            })
         }
         
     }, [categoryId])
