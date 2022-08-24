@@ -1,3 +1,4 @@
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import React from "react";
 import { Link } from 'react-router-dom';
 import { useCartContext } from "../CartContext";
@@ -5,8 +6,30 @@ import CartItem from "./CartItem";
 
 
 const CartContainer = () => {
-
     const { cart, totalPrice } = useCartContext(); 
+
+    const order = {
+        buyer: {
+            name: 'name',
+            email: 'email@mail.com',
+            phone: '024695040',
+            address: 'street123'
+        },
+        items: cart.map(product => ({ 
+            id: product.id, 
+            model: product.model, 
+            price: product.price,
+            quantity: product.quantity
+        })),
+        total: totalPrice(),
+    }
+    
+    const handleCompra = () => {
+        const db = getFirestore();
+        const ordersCollection = collection(db, 'orders');
+        addDoc(ordersCollection, order)
+            .then(({ id }) => alert(`su codigo de compra es ${id}`))
+    }
 
     if (cart.length === 0) {
         return (
@@ -25,6 +48,7 @@ const CartContainer = () => {
             <p>
                 TOTAL: ${totalPrice()}
             </p>
+            <button onClick={handleCompra}>Emitir Compra</button>
         </>
     )
 }
