@@ -17,6 +17,8 @@ import './components/ItemDetail/ItemCount.css'
 
 import CartProvider from './components/CartContext';
 
+import Checkout from './components/Cart/Checkout';
+
 import './components/Cart/CartItem.css'
 
 function App() {
@@ -30,7 +32,8 @@ function App() {
             <Route path="/" element={<ItemListContainer prop="CATALOGO" />} />
             <Route path="/category/:categoryId" element={<ItemListContainer prop="CATALOGO" />} />
             <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<CartContainer />}></Route>
+            <Route path="/cart" element={<CartContainer />} />
+            <Route path="/checkout" element={<Checkout/>} />
 
             <Route path="*" element={<h1>404</h1>} />
           </Routes>
