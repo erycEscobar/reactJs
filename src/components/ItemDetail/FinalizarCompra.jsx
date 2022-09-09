@@ -6,7 +6,7 @@ const FinalizarCompra = () => {
     return (
         <div className="itemCountContainer">
             <Link to='/cart'>
-                <button>Finalizar su compra</button>
+                <button>Ir Al Carrito</button>
             </Link>
         </div>
     )

@@ -15,9 +15,14 @@ const CartProvider = ({ children }) => {
 
     const addProduct = (item, quantity) => {
         if (isInCart(item.id)) {
-            setCart(cart.map(product => {
-                return product.id === item.id ? { ...product, quantity: product.quantity + quantity } : product
-            }));
+
+            if(item.quantity < item.stock) {
+                setCart(cart.map(product => {
+                    return product.id === item.id ? { ...product, quantity: product.quantity + quantity } : product
+                }));    
+
+            };
+
         } else {
             setCart([...cart, { ...item, quantity }]);
         }

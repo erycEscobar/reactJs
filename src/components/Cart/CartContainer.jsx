@@ -12,7 +12,11 @@ const CartContainer = () => {
         return (
             <>
                 <p>El carrito esta vacio</p>
-                <Link to='/'>Ver nuestro catalogo</Link>
+                <Link to='/'>
+                    <button>
+                        Ver nuestro catalogo
+                    </button>
+                </Link>
             </>
         )
     }
@@ -26,7 +30,16 @@ const CartContainer = () => {
                 TOTAL: ${totalPrice()}
             </p>
 
-            <Link to="/checkout">FINALIZAR COMPRA</Link>
+            <Link to="/checkout">
+                <button>
+                    FINALIZAR COMPRA
+                </button>
+            </Link>
+            <Link to='/'>
+                <button>
+                    Volver al catalogo
+                </button>
+            </Link>
         </>
     )
 }

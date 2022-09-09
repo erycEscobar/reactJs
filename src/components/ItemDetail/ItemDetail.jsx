@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import FinalizarCompra from "./FinalizarCompra";
 import ItemCount from "./ItemCount";
 import { useCartContext } from "../CartContext";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ data }) => {
     const [finalizarCompra, setFinalizarCompra] = useState(false);
     const {addProduct} = useCartContext();
 
     const onAdd = (unitsOf) => {
-        alert(`Se agregaron ${unitsOf} productos al carrito`);
+        swal("Muy Bien!", `Se agregaron ${unitsOf} productos al carrito`, "success");
         setFinalizarCompra(true);
         addProduct(data, unitsOf);
+        data.stock = data.stock - unitsOf;
     }
 
     return (
@@ -28,6 +30,9 @@ const ItemDetail = ({ data }) => {
                         ? <FinalizarCompra />
                         : <ItemCount stock={data.stock} initial={1} onAdd={onAdd}/>
                 }
+                <Link to='/'>
+                    <button>Volver al catalogo</button>
+                </Link>
             </div>
         </div>
         </>
