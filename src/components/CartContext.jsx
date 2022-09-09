@@ -6,7 +6,6 @@ export const useCartContext = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
     
     const [cart, setCart] = useState([]);
-    //console.log('carrito: ', cart);
 
     const clearCart = () => setCart([]);
 

@@ -2,8 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useCartContext } from "../CartContext";
 
-/* <img src="../../../src/Assets/shopping-cart.png" alt="" /> */
-
 const CartWidget = () => {
 
     const { totalProducts } = useCartContext();
