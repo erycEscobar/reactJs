@@ -17,13 +17,14 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     justify-items: center;
+    justify-content: center;
 }
 
 .cardItem-Container {
     max-width: 100%;
-    width: 210px;
+    width: 280px;
     max-height: 100%;
-    height: 170px;
+    height: 250px;
 
     border: solid 1px black;
     border-radius: 5px;
@@ -33,7 +34,7 @@
 }
 
 .cardItem-Container img {
-    height: 50px;
+    height: 200px;
 }
 
 .item-Link {

@@ -2,20 +2,19 @@ import React from 'react';
 import CartWidget from './CartWidget';
 import { NavLink } from 'react-router-dom';
 
+import './NavBar.css';
+
+/* <img src="../../../src/Assets/home-button.png" alt="" /> */
+
 const NavBar = () => {
     return (
         <>
         <div className="navBarContainer">
-            <NavLink className="navBar-brand" to='/'>TodaviaNoHayLogo.</NavLink>
+            <NavLink className="navBar-brand" to='/'>coderTechStore</NavLink>
             <ul className="navBar-options">
                 <li className="navBar-item">
                     <NavLink className="navBar-link" to='/'>
-                        <img src="../../../src/Assets/round-account-button-with-user-inside.png" alt="" />
-                    </NavLink>
-                </li>
-                <li className="navBar-item">
-                    <NavLink className="navBar-link" to='/'>
-                        <img src="../../../src/Assets/home-button.png" alt="" /> 
+                        <i className="fi fi-rs-home"></i>
                     </NavLink>
                 </li>
                 <li className="navBar-item">
